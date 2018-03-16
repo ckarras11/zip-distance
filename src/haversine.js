@@ -1,11 +1,14 @@
-export const haversine = function(lat1, lng1, lat2, lng2) {
+const rad = (coord) => Math.PI/180 * coord
+
+export const haversine = (lat1, lng1, lat2, lng2) => {
     // radius of the earth
-    let r = 3959;
+    const r = 3959;
     //convert to radians
-    let rlat1 = Math.PI/180 * lat1
-    let rlng1 = Math.PI/180 * lng1
-    let rlat2 = Math.PI/180 * lat2
-    let rlng2 = Math.PI/180 * lng2
+    let rlat1 = rad(lat1)
+    let rlng1 = rad(lng1)
+    let rlat2 = rad(lat2)
+    let rlng2 = rad(lng2)
+    
     let deltaLat = rlat2 - rlat1;
     let deltaLng = rlng2 - rlng1;
     // Haversine Formula
@@ -17,3 +20,4 @@ export const haversine = function(lat1, lng1, lat2, lng2) {
     let dr = d * r
     return Math.round(dr * 100) / 100;
 }
+
