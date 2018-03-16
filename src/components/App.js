@@ -5,8 +5,6 @@ import Form from './form';
 import Distance from './distance';
 import { setZip1, setZip2, fetchLocations} from '../actions';
 
-
-
 function mapStateToProps(state) {
   return {
     zip1: state.zip1,
