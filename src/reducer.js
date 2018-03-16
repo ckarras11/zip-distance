@@ -10,7 +10,7 @@ import {
 const initialState = {
     zip1: null,
     zip2: null,
-    distance: 0,
+    distance: null,
     location1: '',
     location2: ''
 
