@@ -35,10 +35,6 @@ zipSchema.methods.apiRepr = function () {
     };
 };
 
-/* alertSchema.statics.findByFlag = function (flag) {
-    return this.find({ 'alert.removeFlag': flag });
-}; */
-
 const zip = mongoose.model('zip', zipSchema, 'zip');
 
 module.exports = { zip };

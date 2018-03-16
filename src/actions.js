@@ -28,11 +28,8 @@ export const fetchLocations = (zip1, zip2) => dispatch => {
     return fetch(`/api/?zip1=${zip1}&zip2=${zip2}`)
         .then(res => res.json())
         .then(json => {
-            if(json.length < 2) {
-                alert('Please make sure the zipcodes are valid')
-            } else {
-                dispatch(fetchLocationsSuccess(json));
-            }
-            
+            json.length < 2 ?
+             alert('Please make sure the zipcodes are valid') :
+             dispatch(fetchLocationsSuccess(json)) 
         });
 }
