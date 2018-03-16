@@ -10,21 +10,13 @@ export const setZip2 = (zip) => ({
     zip
 });
 
-export const FETCH_LOCATIONS_INITIATED = 'FETCH_LOCATIONS_INITIATED';
-export const fetchLocationsInitiated = () => ({
-    type: FETCH_LOCATIONS_INITIATED
-});
-
 export const FETCH_LOCATIONS_SUCCESS = 'FETCH_LOCATIONS_SUCCESS';
 export const fetchLocationsSuccess = (res) => ({
     type: FETCH_LOCATIONS_SUCCESS,
     res
 });
 
-// Triggered when app loads and when refresh button is clicked
-// Gets current price
 export const fetchLocations = (zip1, zip2) => dispatch => {
-    dispatch(fetchLocationsInitiated());
     return fetch(`/api/?zip1=${zip1}&zip2=${zip2}`)
         .then(res => res.json())
         .then(json => {
