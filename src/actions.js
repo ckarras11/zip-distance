@@ -10,6 +10,11 @@ export const setZip2 = (zip) => ({
     zip
 });
 
+export const FETCH_LOCATIONS_INIT = 'FETCH_LOCATIONS_INIT';
+export const fetchLocationsInit = () => ({
+    type: FETCH_LOCATIONS_INIT
+});
+
 export const FETCH_LOCATIONS_SUCCESS = 'FETCH_LOCATIONS_SUCCESS';
 export const fetchLocationsSuccess = (res) => ({
     type: FETCH_LOCATIONS_SUCCESS,
@@ -17,6 +22,7 @@ export const fetchLocationsSuccess = (res) => ({
 });
 
 export const fetchLocations = (zip1, zip2) => dispatch => {
+    dispatch(fetchLocationsInit())
     return fetch(`/api/?zip1=${zip1}&zip2=${zip2}`)
         .then(res => res.json())
         .then(json => {

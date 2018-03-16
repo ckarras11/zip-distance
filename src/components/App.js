@@ -3,6 +3,7 @@ import './App.css';
 import { connect } from 'react-redux';
 import Form from './form';
 import Distance from './distance';
+import Loader from './loader';
 import { setZip1, setZip2, fetchLocations} from '../actions';
 
 function mapStateToProps(state) {
@@ -11,7 +12,8 @@ function mapStateToProps(state) {
     zip2: state.zip2,
     distance: state.distance,
     location1: state.location1,
-    location2: state.location2
+    location2: state.location2,
+    loading: state.loading
   };
 }
 
@@ -40,13 +42,18 @@ class App extends Component {
 
   render() {
     let distance;
+    let loading;
     if(this.props.distance !== null) {
       distance = <Distance miles={this.props.distance} loc1={this.props.location1} loc2={this.props.location2}/>
+    }
+    if(this.props.loading) {
+      loading = <Loader />
     }
     return (
       <div className="App">
         <h1 className="title">How Far Away Are You?</h1>
         <Form handleZip1={this.handleZip1} handleZip2={this.handleZip2} onSubmit={this.handleSubmit}/>
+        {loading}
         {distance}
       </div>
     );

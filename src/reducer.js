@@ -2,6 +2,7 @@ import {
     SET_ZIP1,
     SET_ZIP2,
     FETCH_LOCATIONS_SUCCESS,
+    FETCH_LOCATIONS_INIT
 } from './actions';
 import {
    haversine 
@@ -12,7 +13,8 @@ const initialState = {
     zip2: null,
     distance: null,
     location1: '',
-    location2: ''
+    location2: '',
+    loading: false,
 
 };
 
@@ -29,6 +31,11 @@ const reducer = (state = initialState, action) => {
         })
         return state;
     }
+    if(action.type === FETCH_LOCATIONS_INIT) {
+        state = Object.assign({}, state, {
+            loading: true
+        })
+    }
     if(action.type === FETCH_LOCATIONS_SUCCESS) {
         let lat1 = action.res[0].Lat;
         let lng1 = action.res[0].Long;
@@ -40,7 +47,8 @@ const reducer = (state = initialState, action) => {
         state = Object.assign({}, state, {
             distance: d,
             location1: loc1,
-            location2: loc2
+            location2: loc2,
+            loading: false
         })
         return state;
     }
