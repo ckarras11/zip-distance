@@ -11,10 +11,14 @@
 .title {
   margin-bottom: 0px;
 }
+.form-container {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
 .form-horizontal {
   /* Size and position */
-  width: 95%;
-  margin: 60px auto 30px;
+  margin: 30px auto 30px;
   padding: 15px;
 
   /* Styles */

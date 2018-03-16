@@ -2,7 +2,7 @@ import React from 'react';
 
 const Form = ({onSubmit, handleZip1, handleZip2}) => {
     return (
-        <div>
+        <div className="form-container">
             <form className="form-horizontal" onSubmit={onSubmit}>
                 <label htmlFor="zip1">Zip Code 1</label>
                 <input className="form-control" id="zip1" name="zip1" type="number" onChange={handleZip1}/>
